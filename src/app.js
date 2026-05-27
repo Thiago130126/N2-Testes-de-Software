@@ -10,7 +10,8 @@ import createError from 'http-errors';
 // rotas
 import indexRouter from './routes/index.js';
 import accountRouter from './routes/account.js';
-import admRouter from './routes/adm.js'
+import admRouter from './routes/adm.js';
+import healthRouter from './routes/health.js';
 
 
 const app = express();
@@ -46,6 +47,7 @@ app.use((req, res, next) => {
 app.use('/', indexRouter);
 app.use('/account', accountRouter);
 app.use('/admin', admRouter);
+app.use('health/', healthRouter);
 
 
 app.use((req, res, next) => {

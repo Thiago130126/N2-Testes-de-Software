@@ -4,4 +4,49 @@
 <p>
     Pretendo exibir aqui informações como quantidade de cursos feitos, username, first_name, last_name, email, o input senha ficará vazio, data_nascimento e a 
     data de criação da conta
+
+    <form action="/account/update" method="post">
+
+        <div>
+            <label>Nome de Usuário:</label>
+            <input type="text" name="username" value="<%= usuario ? usuario.username : '' %>">
+        </div>
+
+        <div>
+            <label>Primeiro Nome:</label>
+            <input type="text" name="first_name" value="<%= usuario ? usuario.first_name : '' %>">
+        </div>
+
+        <div>
+            <label>Último Nome:</label>
+            <input type="text" name="last_name" value="<%= usuario ? usuario.last_name : '' %>" >
+        </div>
+
+        <div>
+            <label>Email:</label>
+            <input type="email" name="email" value="<%= usuario ? usuario.email : '' %>">
+        </div>
+
+        <div>
+            <label>Data de nascimento:</label>
+            <input type="date" name="data_nascimento" value="<%= usuario ? new Date(usuario.data_nascimento).toISOString().split('T')[0] : '' %>">
+        </div>
+
+        <div>
+            <span><h4>Não preencha os campos de senha se não quiser altera-los</h4></span>
+        </div>
+
+        <div>
+            <label>Nova senha:</label>
+            <input type="password" name="password" >
+        </div>
+
+        <div>
+            <label>Confirme a Senha:</label>
+            <input type="password" name="confirmPassword" >
+        </div>
+
+        <button type="submit">Cadastrar</button>
+
+    </form>
 </p>

@@ -4,12 +4,12 @@
     <div class="nav-links">
         
         <% if(locals.user) { %>
+            <% if(!locals.currentPath.startsWith('/admin')) { %>
+                <span><a href="#">Explorar ('um trabalho em progresso')</a></span>
+            <% } %>
+
             <span><a href="/account/profile/">Olá, <%= locals.user.username %></a></span>
             <span><a href="/account/logout">Sair</a></span>
-
-            <% if(!locals.currentPath.startsWith('/admin')) { %>
-                <span><a href="#">Explorar ('explorar cursos')</a></span>
-            <% } %>
 
         <%} else {%>
             <span><a href="/account/login/">Login</a></span>
