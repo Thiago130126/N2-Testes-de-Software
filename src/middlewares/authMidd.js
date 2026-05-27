@@ -39,3 +39,19 @@ export const userAuth = (req, res, next) => {
         return res.redirect('/');
     }
 }
+
+export const professorAuth = (req, res, next) => {
+    try{
+        if(!req.session.usuarioLogado.professor){
+            req.flash('error', 'Precisa ser um professor para acessar essa página');
+            return res.redirect('/account/login');
+        }
+
+        next();
+
+    }catch(error){
+        console.error(error);
+        req.flash('error', falha);
+        return res.redirect('/');
+    }
+}

@@ -4,6 +4,10 @@ const router = express.Router();
 // controller
 import * as profControll from '../modules/professor/professor.controller.js';
 
+router.get('/', (req, res) => {
+    return res.render('professor/index');
+})
+
 router.get('/register-professor', (req, res) => {
     return res.render('professor/register');
 });
