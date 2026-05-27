@@ -1,0 +1,20 @@
+<% if(locals.user) { %>
+
+    <div>
+        <h1>Um trabalho em progresso</h1>
+        <p>Página principal do site EduStream com o usuário logado</p>
+
+        <p>
+            Aqui nessa página principal pretendo colocar várias informações, como os curos em que o usuário está registrado, umas estatísticas
+            como quantidade de cursos já feitos, cursos pendentes e depois eu penso em outras coisas.
+        </p>
+    </div>
+
+<% }else {%>
+
+    <div>
+        <h1>Bem vindo ao <%= title %>.</h1>
+        <p>Uma plataforma de e-learning onde você poderá se desenvolver e aprender o que tiver aqui.</p>
+        <p>Para acessar os cursos <a href="account/login">faça login</a> ou <a href="account/register">crie uma conta</a></p>
+    </div>
+<% } %>

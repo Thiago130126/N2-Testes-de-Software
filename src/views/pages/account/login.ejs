@@ -1,0 +1,21 @@
+<section>
+    <h2>Login</h2>
+
+    <form action="/account/login" method="POST">
+        <div>
+            <label>Nome de Usuário ou Email:</label>
+            <input type="text" name="email_ou_username" required>
+        </div>
+
+        <div>
+            <label>Senha:</label>
+            <input type="password" name="senha" required>
+        </div>
+
+        <button type="submit">Fazer login</button>
+    </form>
+
+    <p style="text-align:center; margin-top: 1.25rem; font-size:.9rem;">
+        Ainda não tem conta? <a href="/account/register">Cadastre-se</a>
+    </p>
+</section>

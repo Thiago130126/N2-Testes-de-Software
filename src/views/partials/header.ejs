@@ -1,0 +1,21 @@
+<header>
+    <a href="/"><h1>EduStream</h1></a>
+
+    <div class="nav-links">
+        
+        <% if(locals.user) { %>
+            <span><a href="/account/profile/">Olá, <%= locals.user.username %></a></span>
+            <span><a href="/account/logout">Sair</a></span>
+
+            <% if(!locals.currentPath.startsWith('/admin')) { %>
+                <span><a href="#">Explorar ('explorar cursos')</a></span>
+            <% } %>
+
+        <%} else {%>
+            <span><a href="/account/login/">Login</a></span>
+            <span><a href="/account/register">Criar Conta</a></span>
+            <span><a href="/account/professor/register-professor/">Trabalhe conosco</a></span>
+        <% } %>
+    </div>
+
+</header>
