@@ -8,7 +8,7 @@
                 <div class="delta">+1 esta semana</div>
             </article>
             <article class="glass-card stat-card fade-up delay-1">
-                <div class="label">Cursos concluídos: </div>
+                <div class="label">Cursos concluídos</div>
                 <div class="value">12</div>
                 <div class="delta">+2 este mês</div>
             </article>
@@ -86,43 +86,42 @@
         </div>
     </section>
 <% } else { %>
-    <section class="hero">
-        <div class="hero-content">
-            <span class="badge">Plataforma de e-learning</span>
-            <h1>
-                Aprenda <span class="gradient-text">algo novo</span><br>
-                <span class="accent">todos os dias.</span>
-            </h1>
-            <p class="lead">
-                <strong style="color:var(--text);">EduStream</strong> é o lugar onde você se desenvolve, expande horizontes e domina o que importa — com aulas vivas, professores reais e uma trilha feita para você.
-            </p>
-            <div class="hero-cta">
+    <section class="home-wrapper">
+        <div class="glass-card home-hero">
+            <div>
+                <span class="eyebrow">Plataforma de e-learning</span>
+                <h1>Aprenda <span class="gradient-text">algo novo</span> <span class="accent">todos os dias.</span></h1>
+                <p class="sub">
+                    <strong style="color:var(--text);">EduStream</strong> é o lugar onde você se desenvolve, expande horizontes e domina o que importa — com aulas vivas, professores reais e uma trilha feita para você.
+                </p>
+            </div>
+            <div class="home-cta">
                 <a href="/account/register" class="btn">Criar conta grátis</a>
                 <a href="/account/login" class="btn btn-outline">Já tenho conta</a>
             </div>
-            <div class="hero-stats">
-                <div class="stat"><strong>+1.200</strong><span>Aulas</span></div>
-                <div class="stat"><strong>+80</strong><span>Cursos</span></div>
-                <div class="stat"><strong>98%</strong><span>Satisfação</span></div>
-            </div>
         </div>
-        <div class="hero-visual" aria-hidden="true">
-            <div class="panel main">
-                <div class="mock-row"><div class="mock-dot"></div><div style="flex:1;"><div class="mock-line"></div><div class="mock-bar"></div></div></div>
-                <div class="mock-row"><div class="mock-dot" style="background:linear-gradient(135deg,#22d3ee,#6d5cff);"></div><div style="flex:1;"><div class="mock-line" style="width:70%"></div><div class="mock-bar"></div></div></div>
-                <div class="mock-row"><div class="mock-dot"></div><div style="flex:1;"><div class="mock-line" style="width:85%"></div><div class="mock-bar"></div></div></div>
-                <div class="mock-row"><div class="mock-dot" style="background:linear-gradient(135deg,#6d5cff,#2f6cff);"></div><div style="flex:1;"><div class="mock-line"></div><div class="mock-bar"></div></div></div>
-            </div>
-            <div class="panel float-a">
-                <div style="font-size:.7rem; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase;">Progresso</div>
-                <div style="font-family:'Sora'; font-size:1.6rem; background:var(--grad-text); -webkit-background-clip:text; color:transparent; font-weight:700;">87%</div>
-                <div class="mock-bar"></div>
-            </div>
-            <div class="panel float-b">
-                <div style="font-size:.7rem; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase;">Sequência</div>
-                <div style="font-family:'Sora'; font-size:1.6rem; color:#fff; font-weight:700;">🔥 12 dias</div>
-                <div class="mock-line"></div>
-            </div>
+
+        <div class="home-grid">
+            <article class="glass-card home-card fade-up">
+                <div class="icon"></div>
+                <h3>+1.200 aulas</h3>
+                <p>Conteúdo atualizado em <strong style="color:var(--text);">vídeo, prática e projetos reais</strong> para você evoluir no seu ritmo.</p>
+            </article>
+            <article class="glass-card home-card fade-up delay-1">
+                <div class="icon"></div>
+                <h3>+80 cursos</h3>
+                <p>Trilhas em <strong style="color:var(--text);">programação, design, dados e IA</strong> conduzidas por especialistas da indústria.</p>
+            </article>
+            <article class="glass-card home-card fade-up delay-2">
+                <div class="icon"></div>
+                <h3>98% de satisfação</h3>
+                <p>Comunidade ativa, mentoria e <strong style="color:var(--text);">certificados reconhecidos</strong> ao concluir cada jornada.</p>
+            </article>
+            <article class="glass-card home-card fade-up delay-3">
+                <div class="icon"></div>
+                <h3>Aprenda no seu tempo</h3>
+                <p>Estude pelo <strong style="color:var(--text);">computador ou celular</strong>, com progresso sincronizado em todos os dispositivos.</p>
+            </article>
         </div>
     </section>
 <% } %>

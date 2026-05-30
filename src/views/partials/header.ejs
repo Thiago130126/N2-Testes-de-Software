@@ -1,5 +1,18 @@
 <header>
     <a href="/" aria-label="EduStream"><h1>EduStream</h1></a>
+
+    <% if (error && error.length > 0) { %>
+        <div class="alert alert-danger">
+            <%= error %>
+        </div>
+    <% } %>
+
+    <% if (success && success.length > 0) { %>
+        <div class="alert alert-success">
+            <%= success %>
+        </div>
+    <% } %>
+
     <nav class="nav-links" aria-label="Navegação principal">
         <% if(locals.user) { %>
             <% if(!locals.currentPath || !locals.currentPath.startsWith('/admin')) { %>
@@ -17,16 +30,4 @@
             <span><a href="/account/register">Criar Conta</a></span>
         <% } %>
     </nav>
-
-    <% if (error && error.length > 0) { %>
-        <div class="alert alert-danger">
-            <%= error %>
-        </div>
-    <% } %>
-
-    <% if (success && success.length > 0) { %>
-        <div class="alert alert-success">
-            <%= success %>
-        </div>
-    <% } %>
 </header>
