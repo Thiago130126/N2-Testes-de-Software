@@ -1,0 +1,114 @@
+/* ==========================================================================
+   EduStream — Auth pages (login, register, professor register)
+   ========================================================================== */
+.auth-wrapper {
+  width: 100%;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+/* Left side — promo */
+.auth-promo {
+  position: relative;
+  padding: 1rem .5rem;
+  animation: fadeUp .8s var(--ease) both;
+}
+.auth-promo .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .35rem .8rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: rgba(47,108,255,.08);
+  font-size: .78rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--blue-200);
+  margin-bottom: 1.4rem;
+}
+.auth-promo .eyebrow::before {
+  content: "";
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 12px var(--cyan);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50%     { transform: scale(1.4); opacity: .5; }
+}
+.auth-promo h1 { font-size: clamp(2.2rem, 4vw, 3.2rem); }
+.auth-promo p  { font-size: 1.05rem; max-width: 460px; }
+.auth-features {
+  margin-top: 2rem;
+  display: grid;
+  gap: .85rem;
+}
+.auth-features li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  color: var(--text-soft);
+  font-size: .95rem;
+}
+.auth-features li::before {
+  content: "";
+  width: 22px; height: 22px;
+  flex: none;
+  border-radius: 7px;
+  background: var(--grad-primary);
+  box-shadow: var(--glow-blue);
+  position: relative;
+}
+.auth-features { padding: 0; margin-left: 0; }
+/* Right side — card with form */
+.auth-card {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  animation: fadeUp .9s var(--ease) .15s both;
+}
+.auth-card section, .auth-card > div { padding: 0; }
+.auth-card h1, .auth-card h2 {
+  font-size: 1.8rem;
+  margin-bottom: .4rem;
+}
+.auth-card .sub {
+  color: var(--text-muted);
+  font-size: .92rem;
+  margin-bottom: 1.6rem;
+}
+.auth-card form { display: grid; }
+.auth-card button[type="submit"] {
+  width: 100%;
+  margin-top: .6rem;
+  padding: 1rem;
+}
+.auth-card .footnote {
+  text-align: center;
+  margin-top: 1.4rem;
+  font-size: .9rem;
+  color: var(--text-muted);
+}
+.auth-card .footnote a {
+  color: var(--blue-200);
+  font-weight: 600;
+}
+/* Two-column form rows on wider screens */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 1rem;
+}
+.form-grid .full { grid-column: 1 / -1; }
+@media (max-width: 900px) {
+  .auth-wrapper { grid-template-columns: 1fr; gap: 2rem; }
+  .auth-promo { text-align: center; }
+  .auth-promo .eyebrow { margin-inline: auto; }
+  .auth-features { justify-content: center; max-width: 360px; margin-inline: auto; }
+  .form-grid { grid-template-columns: 1fr; }
+}

@@ -1,7 +1,79 @@
 <footer>
-    <p>Todos os diretos reservados &copy;2026 EduStream</p>
-    <div>
-        <span><a href="#">Segurança</a></span>
-        <span><a href="#">Sobre</a></span>
-    </div>
+    <p>
+        &copy;<%= new Date().getFullYear() %> <strong style="color:var(--text);">EduStream</strong> — Todos os direitos reservados.
+        <p>Continue de onde parou. Aqui está um resumo da sua jornada de aprendizado.</p>
+    </p>
+    <nav class="footer-nav">
+        <button type="button" class="footer-link" data-modal-target="modal-seguranca">Segurança</button>
+        <button type="button" class="footer-link" data-modal-target="modal-sobre">Sobre</button>
+        <button type="button" class="footer-link" data-modal-target="modal-contato">Contato</button>
+    </nav>
 </footer>
+
+<div class="modal-overlay" id="modal-seguranca" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-seguranca-title">
+        <button type="button" class="modal-close" data-modal-close aria-label="Fechar">&times;</button>
+        <h2 id="modal-seguranca-title"><span class="gradient-text">Segurança</span></h2>
+        <div class="modal-body">
+        <p>
+            O site conta com uma defesa para ataque csrf utilizando tokens. Senhas dos usuários são criptografadas. O EJS é blindado, possuí escapamento de variáveis
+            impedindo ataques XSS. A implementação da defesa contra csrf, conta com tag de template inspirada na arquitetura do Django.
+        </p>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="modal-sobre" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-sobre-title">
+        <button type="button" class="modal-close" data-modal-close aria-label="Fechar">&times;</button>
+        <h2 id="modal-sobre-title"> <span class="gradient-text">Sobre</span></h2>
+        <div class="modal-body">
+            <p>
+                EduStream é a plataforma de e-laerning criada para a N2 de testes de software. <span class="gradient-text">A estrada até aqui:</span>
+                O EduStream conta com o básico das funcionalidades do Usuário, página de ADM, multer. Impelementei um pipeline de backends de autenticação
+                para login completamente inspirado na arquitetura do Django, graças a isso consigo logar tanto professor quanto usuário com a mesma página de login.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="modal-contato" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-contato-title">
+        <button type="button" class="modal-close" data-modal-close aria-label="Fechar">&times;</button>
+        <h2 id="modal-contato-title"> <span class="gradient-text">Contato</span> </h2>
+        <div class="modal-body">
+            <p>Para entrar em contato com nosso time, </p>
+            <p>ligue para <span class="gradient-text">47 93704-7070</span>. Se não der certo 70 de novo.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+(function () {
+  const open = (id) => {
+    const m = document.getElementById(id);
+    if (!m) return;
+    m.classList.add('is-open');
+    m.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+  };
+  const close = (m) => {
+    m.classList.remove('is-open');
+    m.setAttribute('aria-hidden', 'true');
+    if (!document.querySelector('.modal-overlay.is-open')) {
+      document.body.classList.remove('modal-open');
+    }
+  };
+  document.querySelectorAll('[data-modal-target]').forEach(btn => {
+    btn.addEventListener('click', () => open(btn.dataset.modalTarget));
+  });
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay || e.target.hasAttribute('data-modal-close')) close(overlay);
+    });
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.is-open').forEach(close);
+  });
+})();
+</script>

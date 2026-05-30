@@ -35,10 +35,13 @@ app.use(session({
     cookie: { maxAge: 1000 * 60 * 60 * 24 }
 }));
 app.use(flash());
+
 app.use((req, res, next) => {
-    res.locals.messages = req.flash();
+    res.locals.success = req.flash('success');
+    res.locals.error = req.flash('error');
     res.locals.user = req.session.usuarioLogado || null;
     res.locals.currentPath = req.originalUrl;
+
     next();
 });
 

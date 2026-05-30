@@ -1,44 +1,54 @@
-<div>
-    <h1>Página para criar sua conta</h1>
-
-    <form action="/account/register" method="post">
-
-        <div>
-            <label>Nome de Usuário:</label>
-            <input type="text" name="username" required>
-        </div>
-
-        <div>
-            <label>Primeiro Nome:</label>
-            <input type="text" name="first_name" required>
-        </div>
-
-        <div>
-            <label>Último Nome:</label>
-            <input type="text" name="last_name" required>
-        </div>
-
-        <div>
-            <label>Email:</label>
-            <input type="email" name="email" required>
-        </div>
-
-        <div>
-            <label>Data de nascimento:</label>
-            <input type="date" name="data_nascimento" required>
-        </div>
-
-        <div>
-            <label>Senha:</label>
-            <input type="password" name="password" required>
-        </div>
-
-        <div>
-            <label>Confirme a Senha:</label>
-            <input type="password" name="confirmPassword" required>
-        </div>
-
-        <button type="submit">Cadastrar</button>
-
-    </form>
-</div>
+<% locals.pageStyles = ['/stylesheets/auth.css']; %>
+<section class="auth-wrapper">
+    <aside class="auth-promo">
+        <span class="eyebrow">Crie sua conta</span>
+        <h1>Comece a aprender <span class="gradient-text">hoje mesmo.</span></h1>
+        <p>Faça parte de uma comunidade que evolui todos os dias. Cadastro rápido, acesso imediato e a primeira aula é por nossa conta.</p>
+        <ul class="auth-features">
+            <li>Acesso gratuito a dezenas de cursos</li>
+            <li>Trilhas personalizadas para o seu objetivo</li>
+            <li>Comunidade ativa e suporte de professores</li>
+        </ul>
+    </aside>
+    <div class="glass-card auth-card">
+        <h1>Criar conta</h1>
+        <p class="sub">Preencha seus dados para começar a estudar.</p>
+        <form action="/account/register" method="post" class="form-grid">
+            <div class="full">
+                <label for="username">Nome de Usuário</label>
+                <input id="username" type="text" name="username" placeholder="seu_usuario" required>
+            </div>
+            <div>
+                <label for="first_name">Primeiro Nome</label>
+                <input id="first_name" type="text" name="first_name" required>
+            </div>
+            <div>
+                <label for="last_name">Último Nome</label>
+                <input id="last_name" type="text" name="last_name" required>
+            </div>
+            <div class="full">
+                <label for="email">Email</label>
+                <input id="email" type="email" name="email" placeholder="voce@email.com" required>
+            </div>
+            <div class="full">
+                <label for="data_nascimento">Data de nascimento</label>
+                <input id="data_nascimento" type="date" name="data_nascimento" required>
+            </div>
+            <div>
+                <label for="password">Senha</label>
+                <input id="password" type="password" name="password" placeholder="••••••••" required>
+            </div>
+            <div>
+                <label for="confirmPassword">Confirme a Senha</label>
+                <input id="confirmPassword" type="password" name="confirmPassword" placeholder="••••••••" required>
+            </div>
+            <%- csrf_tag() %>
+            <div class="full">
+                <button type="submit">Cadastrar e começar</button>
+            </div>
+        </form>
+        <p class="footnote">
+            Já tem uma conta? <a href="/account/login">Faça login →</a>
+        </p>
+    </div>
+</section>

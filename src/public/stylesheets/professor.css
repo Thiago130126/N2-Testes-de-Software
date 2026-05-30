@@ -1,0 +1,81 @@
+/* ==========================================================================
+   EduStream — Professor area
+   ========================================================================== */
+.prof-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  gap: 1.5rem;
+}
+.prof-hero {
+  padding: 2.4rem 2.6rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  background:
+    radial-gradient(500px 200px at 0% 0%, rgba(47,108,255,.22), transparent 60%),
+    var(--surface);
+  animation: fadeUp .7s var(--ease) both;
+}
+.prof-hero .eyebrow {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .3rem .8rem; border-radius: 999px;
+  background: rgba(34,211,238,.12); border: 1px solid rgba(34,211,238,.35);
+  color: var(--cyan); font-size: .72rem; letter-spacing: .15em; text-transform: uppercase;
+  margin-bottom: .8rem;
+}
+.prof-hero h1 { margin: 0; }
+.prof-hero .sub { color: var(--text-soft); margin-top: .5rem; max-width: 540px; }
+.prof-cta { display: flex; gap: .8rem; flex-wrap: wrap; }
+.prof-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+}
+.prof-card { padding: 1.6rem; }
+.prof-card .icon {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: var(--grad-primary); box-shadow: var(--glow-blue);
+  margin-bottom: 1rem;
+}
+.prof-card h3 { margin: 0 0 .4rem; }
+.prof-card p { color: var(--text-soft); margin: 0; font-size: .92rem; }
+/* Professor register page hero */
+.prof-register {
+  width: 100%;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.prof-register .promo h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+.prof-register .promo .eyebrow {
+  display: inline-flex; align-items: center; gap: .55rem;
+  padding: .35rem .9rem; border-radius: 999px;
+  background: rgba(109,92,255,.12); border: 1px solid rgba(109,92,255,.35);
+  color: #c4baff; font-size: .75rem; letter-spacing: .15em; text-transform: uppercase;
+  margin-bottom: 1.4rem;
+}
+.benefit-list { list-style: none; padding: 0; margin: 1.8rem 0 0; display: grid; gap: .7rem; }
+.benefit-list li {
+  display: flex; align-items: center; gap: .8rem;
+  color: var(--text-soft); font-size: .95rem;
+}
+.benefit-list li::before {
+  content: "✓";
+  width: 22px; height: 22px;
+  display: grid; place-items: center;
+  border-radius: 7px;
+  background: var(--grad-primary); color: #fff;
+  font-size: .8rem; font-weight: 800;
+  box-shadow: var(--glow-blue);
+  flex: none;
+}
+@media (max-width: 900px) {
+  .prof-hero { grid-template-columns: 1fr; }
+  .prof-register { grid-template-columns: 1fr; }
+}

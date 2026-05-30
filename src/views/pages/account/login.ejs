@@ -1,21 +1,34 @@
-<section>
-    <h2>Login</h2>
-
-    <form action="/account/login" method="POST">
-        <div>
-            <label>Nome de Usuário ou Email:</label>
-            <input type="text" name="email_ou_username" required>
-        </div>
-
-        <div>
-            <label>Senha:</label>
-            <input type="password" name="senha" required>
-        </div>
-
-        <button type="submit">Fazer login</button>
-    </form>
-
-    <p style="text-align:center; margin-top: 1.25rem; font-size:.9rem;">
-        Ainda não tem conta? <a href="/account/register">Cadastre-se</a>
-    </p>
+<% locals.pageStyles = ['/stylesheets/auth.css']; %>
+<section class="auth-wrapper">
+    <aside class="auth-promo">
+        <span class="eyebrow">Bem-vindo de volta</span>
+        <h1>Continue sua <span class="gradient-text">jornada</span> de aprendizado.</h1>
+        <p>Acesse sua conta para retomar seus cursos, acompanhar seu progresso e descobrir novos conteúdos pensados para você.</p>
+        <ul class="auth-features">
+            <li>Continue de onde parou em qualquer dispositivo</li>
+            <li>Acompanhe seu progresso em tempo real</li>
+            <li>Certificados exclusivos de conclusão</li>
+        </ul>
+    </aside>
+    <div class="glass-card auth-card">
+        <section>
+            <h2>Entrar</h2>
+            <p class="sub">Insira suas credenciais para acessar a plataforma.</p>
+            <form action="/account/login" method="POST">
+                <div>
+                    <label for="email_ou_username">Nome de Usuário ou Email</label>
+                    <input id="email_ou_username" type="text" name="email_ou_username" placeholder="seuusuario ou voce@email.com" required>
+                </div>
+                <div>
+                    <label for="senha">Senha</label>
+                    <input id="senha" type="password" name="senha" placeholder="••••••••" required>
+                </div>
+                <%- csrf_tag() %>
+                <button type="submit">Fazer login</button>
+            </form>
+            <p class="footnote">
+                Ainda não tem conta? <a href="/account/register">Cadastre-se grátis →</a>
+            </p>
+        </section>
+    </div>
 </section>

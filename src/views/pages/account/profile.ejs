@@ -1,52 +1,61 @@
-<h1>Página para exibir o perfil do usuário</h1>
-<p>Ainda um trabalho em progresso...</p>
-<br>
-<p>
-    Pretendo exibir aqui informações como quantidade de cursos feitos, username, first_name, last_name, email, o input senha ficará vazio, data_nascimento e a 
-    data de criação da conta
-
-    <form action="/account/update" method="post">
-
-        <div>
-            <label>Nome de Usuário:</label>
-            <input type="text" name="username" value="<%= usuario ? usuario.username : '' %>">
+<% locals.pageStyles = ['/stylesheets/profile.css']; %>
+<section class="profile-wrapper">
+    <aside class="glass-card profile-side">
+        <h2><%= usuario ? (usuario.first_name + ' ' + usuario.last_name) : 'Seu nome' %></h2>
+        <div class="role"><%= usuario. %></div>
+        <div class="profile-quick">
+            <div class="row"><span>Cursos concluídos</span><span>12</span></div>
+            <div class="row"><span>Em andamento</span><span>3</span></div>
+            <div class="row"><span>Certificados</span><span>08</span></div>
+            <div class="row"><span>Membro desde</span><span><%= usuario && usuario.createdAt ? new Date(usuario.createdAt).toLocaleDateString('pt-BR') : '—' %></span></div>
         </div>
-
-        <div>
-            <label>Primeiro Nome:</label>
-            <input type="text" name="first_name" value="<%= usuario ? usuario.first_name : '' %>">
-        </div>
-
-        <div>
-            <label>Último Nome:</label>
-            <input type="text" name="last_name" value="<%= usuario ? usuario.last_name : '' %>" >
-        </div>
-
-        <div>
-            <label>Email:</label>
-            <input type="email" name="email" value="<%= usuario ? usuario.email : '' %>">
-        </div>
-
-        <div>
-            <label>Data de nascimento:</label>
-            <input type="date" name="data_nascimento" value="<%= usuario ? new Date(usuario.data_nascimento).toISOString().split('T')[0] : '' %>">
-        </div>
-
-        <div>
-            <span><h4>Não preencha os campos de senha se não quiser altera-los</h4></span>
-        </div>
-
-        <div>
-            <label>Nova senha:</label>
-            <input type="password" name="password" >
-        </div>
-
-        <div>
-            <label>Confirme a Senha:</label>
-            <input type="password" name="confirmPassword" >
-        </div>
-
-        <button type="submit">Cadastrar</button>
-
-    </form>
-</p>
+    </aside>
+    <div class="glass-card profile-main">
+        <h1>Meu perfil</h1>
+        <p class="sub">Atualize suas informações pessoais e mantenha sua conta sempre segura.</p>
+        <form action="/account/update" method="post">
+            <div class="section-divider">Dados pessoais</div>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 0 1rem;">
+                <div>
+                    <label for="username">Nome de Usuário</label>
+                    <input id="username" type="text" name="username" value="<%= usuario ? usuario.username : '' %>">
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input id="email" type="email" name="email" value="<%= usuario ? usuario.email : '' %>">
+                </div>
+                <div>
+                    <label for="first_name">Primeiro Nome</label>
+                    <input id="first_name" type="text" name="first_name" value="<%= usuario ? usuario.first_name : '' %>">
+                </div>
+                <div>
+                    <label for="last_name">Último Nome</label>
+                    <input id="last_name" type="text" name="last_name" value="<%= usuario ? usuario.last_name : '' %>">
+                </div>
+                <div style="grid-column: 1 / -1;">
+                    <label for="data_nascimento">Data de nascimento</label>
+                    <input id="data_nascimento" type="date" name="data_nascimento" value="<%= usuario && usuario.data_nascimento ? new Date(usuario.data_nascimento).toISOString().split('T')[0] : '' %>">
+                </div>
+            </div>
+            <div class="section-divider">Segurança</div>
+            <p style="font-size:.85rem; color: var(--text-muted); margin-top:-.5rem;">
+                Deixe os campos em branco se não quiser alterar a senha.
+            </p>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 0 1rem;">
+                <div>
+                    <label for="password">Nova senha</label>
+                    <input id="password" type="password" name="password" placeholder="••••••••">
+                </div>
+                <div>
+                    <label for="confirmPassword">Confirme a nova senha</label>
+                    <input id="confirmPassword" type="password" name="confirmPassword" placeholder="••••••••">
+                </div>
+            </div>
+            <%- csrf_tag() %>
+            <div style="margin-top: 1.6rem; display:flex; gap:.8rem; flex-wrap:wrap;">
+                <button type="submit">Salvar alterações</button>
+                <a href="/" class="btn btn-outline">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</section>

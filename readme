@@ -1,1 +1,3 @@
-impactante, com um design uniforme, 3D, vivo, animações, que faça a pessoa dizer 'Uau'
+// Preciso fazer o painel de admin para ele receber os register dos professores e decidir se permite ou não. Falta o post do register do professorAuth,
+// preciso também criar o post updateProfile do user para editar o próprio perfil. Tem muita coisa a fazer.
+// Preciso fazer o flash funcionar.

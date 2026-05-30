@@ -10,23 +10,28 @@ import { admAuth } from '../middlewares/authMidd.js';
 
 // Middlewares
 import * as authMidd from '../middlewares/authMidd.js';
+import * as csrfMidd from '../middlewares/anti-csrf.js';
 
-router.get('/register', (req, res) => {
+router.get('/register', csrfMidd.Maestro_CSRF, (req, res) => {
     res.render('account/register', { title: 'EduStream-TDD' });
 });
 
-router.post('/register', userControll.registerUser);
+router.post('/register', csrfMidd.Maestro_CSRF, userControll.registerUser);
 
-router.get('/login', (req, res) => {
+router.get('/login', csrfMidd.Maestro_CSRF, (req, res) => {
     res.render('account/login', { title: 'EduStream-TDD' });
 });
 
-router.post('/login', userControll.loginUser);
+router.post('/login', csrfMidd.Maestro_CSRF, userControll.loginUser);
 
 router.get('/logout', userControll.logout);
 
-router.get('/profile', authMidd.userAuth, userControll.getProfileUser);
+router.get('/profile', csrfMidd.Maestro_CSRF, authMidd.userAuth, userControll.getProfileUser);
 
+router.post('/profile', csrfMidd.Maestro_CSRF, authMidd.userAuth, userControll.updateProfileUser);
+
+
+// rotas do professor dentro de account
 
 router.use('/professor', professorRouter);
 

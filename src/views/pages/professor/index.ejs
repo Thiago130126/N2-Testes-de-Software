@@ -1,3 +1,36 @@
-<h1>Página principal após o login do professor</h1>
-
-<p>Também um trabalho em progresso...</p>
+<% locals.pageStyles = ['/stylesheets/professor.css']; %>
+<section class="prof-wrapper">
+    <div class="glass-card prof-hero">
+        <div>
+            <span class="eyebrow">Área do Professor</span>
+            <h1>Olá, professor(a) <span class="gradient-text"><%= locals.user ? locals.user.username : '' %></span></h1>
+            <p class="sub">Seu espaço para criar, gerenciar aulas e acompanhar a jornada dos seus alunos. Vamos transformar conhecimento em impacto?</p>
+        </div>
+        <div class="prof-cta">
+            <a href="#" class="btn">+ Novo curso</a>
+            <a href="#" class="btn btn-outline">Minhas aulas</a>
+        </div>
+    </div>
+    <div class="prof-grid">
+        <article class="glass-card prof-card fade-up">
+            <div class="icon"></div>
+            <h3>Cursos ativos</h3>
+            <p>Você tem <strong style="color:var(--text);">4 cursos</strong> publicados e <strong style="color:var(--text);">2</strong> em rascunho.</p>
+        </article>
+        <article class="glass-card prof-card fade-up delay-1">
+            <div class="icon"></div>
+            <h3>Alunos matriculados</h3>
+            <p><strong style="color:var(--text);">1.284 alunos</strong> estão estudando com você agora.</p>
+        </article>
+        <article class="glass-card prof-card fade-up delay-2">
+            <div class="icon"></div>
+            <h3>Avaliação média</h3>
+            <p><strong style="color:var(--text);">4.8 ★</strong> de 5 — baseado em 320 avaliações.</p>
+        </article>
+        <article class="glass-card prof-card fade-up delay-3">
+            <div class="icon"></div>
+            <h3>Mensagens</h3>
+            <p><strong style="color:var(--text);">12 novas</strong> dúvidas de alunos aguardando resposta.</p>
+        </article>
+    </div>
+</section>

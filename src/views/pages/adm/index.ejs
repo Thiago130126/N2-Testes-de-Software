@@ -1,8 +1,111 @@
-<h1>
-    Bem vindo <span><%= usuarioAdm.username %></span> <br>
-    Página de adm em desenvolvimento...
-</h1>
-<p>
-    Aqui eu pretendo trazer estatísticas do sisteams, como quantidade de usuários registrados, quantidade de adms, quantidade de professores, quantidade de usuarios,
-    numero de banidos, numero de cursos cadastrados, numero de aulas na plataforma, cadastros de professores que estão pendentes e rejeitados.
-</p>
+<% locals.pageStyles = ['/stylesheets/adm.css']; %>
+<section class="adm-wrapper">
+    <div class="glass-card adm-hero">
+        <div>
+            <span class="eyebrow">Painel administrativo</span>
+            <h1>Bem-vindo, <span class="gradient-text"><%= usuarioAdm.username %></span></h1>
+            <p class="status"><span class="pulse"></span> Todos os sistemas operacionais</p>
+        </div>
+        <div class="actions">
+            <a href="#" class="btn">Novo relatório</a>
+        </div>
+    </div>
+    <div class="kpi-grid">
+        <article class="glass-card kpi">
+            <div class="icon"></div>
+            <div class="label">Usuários registrados</div>
+            <div class="value">12.480</div>
+            <div class="delta">+248 esta semana</div>
+        </article>
+        <article class="glass-card kpi">
+            <div class="icon"></div>
+            <div class="label">Professores</div>
+            <div class="value">186</div>
+            <div class="delta">+5 este mês</div>
+        </article>
+        <article class="glass-card kpi">
+            <div class="icon"></div>
+            <div class="label">Administradores</div>
+            <div class="value">07</div>
+            <div class="delta">Equipe completa</div>
+        </article>
+        <article class="glass-card kpi">
+            <div class="icon"></div>
+            <div class="label">Cursos cadastrados</div>
+            <div class="value">342</div>
+            <div class="delta">+12 este mês</div>
+        </article>
+        <article class="glass-card kpi">
+            <div class="icon"></div>
+            <div class="label">Aulas publicadas</div>
+            <div class="value">8.914</div>
+            <div class="delta">+126 esta semana</div>
+        </article>
+        <article class="glass-card kpi">
+            <div class="icon"></div>
+            <div class="label">Usuários banidos</div>
+            <div class="value">23</div>
+            <div class="delta bad">+2 este mês</div>
+        </article>
+    </div>
+    <div class="adm-grid">
+        <article class="glass-card">
+            <div class="panel-title">
+                <h2>Cadastros de professores pendentes</h2>
+                <a href="#" class="link">Ver todos →</a>
+            </div>
+            <div class="pending-list">
+                <div class="pending-item">
+                    <div class="av">M</div>
+                    <div>
+                        <div class="name">Marina Souza</div>
+                        <div class="meta">marina.souza@email.com • Enviado há 2h</div>
+                    </div>
+                    <div class="actions">
+                        <button class="icon-btn" title="Aprovar">✓</button>
+                        <button class="icon-btn deny" title="Recusar">✕</button>
+                    </div>
+                </div>
+                <div class="pending-item">
+                    <div class="av">R</div>
+                    <div>
+                        <div class="name">Rafael Lima</div>
+                        <div class="meta">rafael.lima@email.com • Enviado há 6h</div>
+                    </div>
+                    <div class="actions">
+                        <button class="icon-btn" title="Aprovar">✓</button>
+                        <button class="icon-btn deny" title="Recusar">✕</button>
+                    </div>
+                </div>
+                <div class="pending-item">
+                    <div class="av">J</div>
+                    <div>
+                        <div class="name">Juliana Pereira</div>
+                        <div class="meta">ju.pereira@email.com • Enviado ontem</div>
+                    </div>
+                    <div class="actions">
+                        <button class="icon-btn" title="Aprovar">✓</button>
+                        <button class="icon-btn deny" title="Recusar">✕</button>
+                    </div>
+                </div>
+            </div>
+            <p style="margin-top: 1.2rem; color: var(--text-muted); font-size: .85rem;">
+                <strong style="color:#ffb84d;">3 pendentes</strong> &nbsp;·&nbsp; 14 aprovados nos últimos 30 dias &nbsp;·&nbsp; 2 rejeitados
+            </p>
+        </article>
+        <article class="glass-card">
+            <div class="panel-title">
+                <h2>Atividade recente</h2>
+                <a href="#" class="link">Histórico</a>
+            </div>
+            <div class="activity">
+                <div class="row"><span class="dot"></span><span>Novo curso publicado: <strong>Arquitetura de APIs</strong></span><span class="when">2min</span></div>
+                <div class="row warn"><span class="dot"></span><span>5 logins falhos detectados</span><span class="when">15min</span></div>
+                <div class="row"><span class="dot"></span><span>Professor <strong>Eduardo M.</strong> aprovado</span><span class="when">1h</span></div>
+                <div class="row"><span class="dot"></span><span>248 novos usuários esta semana</span><span class="when">hoje</span></div>
+                <div class="row bad"><span class="dot"></span><span>Usuário <strong>@spammer42</strong> banido</span><span class="when">ontem</span></div>
+                <div class="row"><span class="dot"></span><span>Backup automático concluído</span><span class="when">ontem</span></div>
+            </div>
+        </article>
+    </div>
+</section>

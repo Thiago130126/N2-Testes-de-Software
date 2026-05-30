@@ -1,21 +1,32 @@
 <header>
-    <a href="/"><h1>EduStream</h1></a>
-
-    <div class="nav-links">
-        
+    <a href="/" aria-label="EduStream"><h1>EduStream</h1></a>
+    <nav class="nav-links" aria-label="Navegação principal">
         <% if(locals.user) { %>
-            <% if(!locals.currentPath.startsWith('/admin')) { %>
-                <span><a href="#">Explorar ('um trabalho em progresso')</a></span>
+            <% if(!locals.currentPath || !locals.currentPath.startsWith('/admin')) { %>
+                <span><a href="#">Explorar</a></span>
             <% } %>
-
-            <span><a href="/account/profile/">Olá, <%= locals.user.username %></a></span>
+            <% if(locals.currentPath.startsWith('/account/professor')) { %>
+                <span><a href="/account/professor/profile">Olá, <%= locals.user.username %></a></span>
+            <% } else { %>
+                <span><a href="/account/profile/">Olá, <%= locals.user.username %></a></span>
+            <% } %>
             <span><a href="/account/logout">Sair</a></span>
-
-        <%} else {%>
+        <% } else { %>
             <span><a href="/account/login/">Login</a></span>
-            <span><a href="/account/register">Criar Conta</a></span>
             <span><a href="/account/professor/register-professor/">Trabalhe conosco</a></span>
+            <span><a href="/account/register">Criar Conta</a></span>
         <% } %>
-    </div>
+    </nav>
 
+    <% if (error && error.length > 0) { %>
+        <div class="alert alert-danger">
+            <%= error %>
+        </div>
+    <% } %>
+
+    <% if (success && success.length > 0) { %>
+        <div class="alert alert-success">
+            <%= success %>
+        </div>
+    <% } %>
 </header>

@@ -1,20 +1,128 @@
+<% locals.pageStyles = ['/stylesheets/home.css']; %>
 <% if(locals.user) { %>
-
-    <div>
-        <h1>Um trabalho em progresso</h1>
-        <p>Página principal do site EduStream com o usuário logado</p>
-
-        <p>
-            Aqui nessa página principal pretendo colocar várias informações, como os curos em que o usuário está registrado, umas estatísticas
-            como quantidade de cursos já feitos, cursos pendentes e depois eu penso em outras coisas.
-        </p>
-    </div>
-
-<% }else {%>
-
-    <div>
-        <h1>Bem vindo ao <%= title %>.</h1>
-        <p>Uma plataforma de e-learning onde você poderá se desenvolver e aprender o que tiver aqui.</p>
-        <p>Para acessar os cursos <a href="account/login">faça login</a> ou <a href="account/register">crie uma conta</a></p>
-    </div>
+    <section class="dash">
+        <div class="stat-grid">
+            <article class="glass-card stat-card fade-up">
+                <div class="label">Cursos em andamento</div>
+                <div class="value">3</div>
+                <div class="delta">+1 esta semana</div>
+            </article>
+            <article class="glass-card stat-card fade-up delay-1">
+                <div class="label">Cursos concluídos: </div>
+                <div class="value">12</div>
+                <div class="delta">+2 este mês</div>
+            </article>
+            <article class="glass-card stat-card fade-up delay-2">
+                <div class="label">Horas estudadas</div>
+                <div class="value">87h</div>
+                <div class="delta">Sequência de 6 dias</div>
+            </article>
+            <article class="glass-card stat-card fade-up delay-3">
+                <div class="label">Certificados</div>
+                <div class="value">08</div>
+                <div class="delta">Pronto para mais</div>
+            </article>
+        </div>
+        <div class="panel-grid">
+            <article class="glass-card fade-up delay-2">
+                <div class="panel-title">
+                    <h2>Continue assistindo</h2>
+                    <a class="link" href="#">Ver tudo →</a>
+                </div>
+                <div class="course-list">
+                    <div class="course-item">
+                        <div class="course-thumb">JS</div>
+                        <div>
+                            <div class="course-title">JavaScript Moderno do Zero</div>
+                            <div class="course-meta">Módulo 4 • Aula 12 de 38</div>
+                            <div class="mock-bar" style="margin-top:.5rem;"></div>
+                        </div>
+                        <div class="course-progress">32%</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-thumb">UI</div>
+                        <div>
+                            <div class="course-title">Design de Interfaces Modernas</div>
+                            <div class="course-meta">Módulo 2 • Aula 7 de 22</div>
+                            <div class="mock-bar" style="margin-top:.5rem;"></div>
+                        </div>
+                        <div class="course-progress">28%</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-thumb">DB</div>
+                        <div>
+                            <div class="course-title">Banco de Dados na Prática</div>
+                            <div class="course-meta">Módulo 5 • Aula 18 de 24</div>
+                            <div class="mock-bar" style="margin-top:.5rem;"></div>
+                        </div>
+                        <div class="course-progress">75%</div>
+                    </div>
+                </div>
+            </article>
+            <article class="glass-card fade-up delay-3">
+                <div class="panel-title">
+                    <h2>Pendentes</h2>
+                    <a class="link" href="#">Filtrar</a>
+                </div>
+                <div class="course-list">
+                    <div class="course-item">
+                        <div class="course-thumb">QA</div>
+                        <div>
+                            <div class="course-title">Testes de Software</div>
+                            <div class="course-meta">Não iniciado</div>
+                        </div>
+                        <div class="course-progress">0%</div>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-thumb">AI</div>
+                        <div>
+                            <div class="course-title">Introdução à IA</div>
+                            <div class="course-meta">Não iniciado</div>
+                        </div>
+                        <div class="course-progress">0%</div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+<% } else { %>
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge">Plataforma de e-learning</span>
+            <h1>
+                Aprenda <span class="gradient-text">algo novo</span><br>
+                <span class="accent">todos os dias.</span>
+            </h1>
+            <p class="lead">
+                <strong style="color:var(--text);">EduStream</strong> é o lugar onde você se desenvolve, expande horizontes e domina o que importa — com aulas vivas, professores reais e uma trilha feita para você.
+            </p>
+            <div class="hero-cta">
+                <a href="/account/register" class="btn">Criar conta grátis</a>
+                <a href="/account/login" class="btn btn-outline">Já tenho conta</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat"><strong>+1.200</strong><span>Aulas</span></div>
+                <div class="stat"><strong>+80</strong><span>Cursos</span></div>
+                <div class="stat"><strong>98%</strong><span>Satisfação</span></div>
+            </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+            <div class="panel main">
+                <div class="mock-row"><div class="mock-dot"></div><div style="flex:1;"><div class="mock-line"></div><div class="mock-bar"></div></div></div>
+                <div class="mock-row"><div class="mock-dot" style="background:linear-gradient(135deg,#22d3ee,#6d5cff);"></div><div style="flex:1;"><div class="mock-line" style="width:70%"></div><div class="mock-bar"></div></div></div>
+                <div class="mock-row"><div class="mock-dot"></div><div style="flex:1;"><div class="mock-line" style="width:85%"></div><div class="mock-bar"></div></div></div>
+                <div class="mock-row"><div class="mock-dot" style="background:linear-gradient(135deg,#6d5cff,#2f6cff);"></div><div style="flex:1;"><div class="mock-line"></div><div class="mock-bar"></div></div></div>
+            </div>
+            <div class="panel float-a">
+                <div style="font-size:.7rem; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase;">Progresso</div>
+                <div style="font-family:'Sora'; font-size:1.6rem; background:var(--grad-text); -webkit-background-clip:text; color:transparent; font-weight:700;">87%</div>
+                <div class="mock-bar"></div>
+            </div>
+            <div class="panel float-b">
+                <div style="font-size:.7rem; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase;">Sequência</div>
+                <div style="font-family:'Sora'; font-size:1.6rem; color:#fff; font-weight:700;">🔥 12 dias</div>
+                <div class="mock-line"></div>
+            </div>
+        </div>
+    </section>
 <% } %>
