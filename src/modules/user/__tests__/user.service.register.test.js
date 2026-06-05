@@ -180,17 +180,17 @@ describe('User Service - Cadastro', () => {
 
         mockUserModel.count.mockResolvedValue(5);
 
-        mockUserModel.create.mockResolvedValue({ id: 1, ...data, adm: true });
+        mockUserModel.create.mockResolvedValue({ id: 1, ...data, adm: false });
 
         const result = await userService.register(data, mockUserModel);
 
         expect(mockUserModel.create).not.toHaveBeenCalledWith(
             expect.objectContaining({
                 username: 'NotadminUser',
-                adm: true
+                adm: false
             })
         );
-        expect(result.adm).toBe(true);
+        expect(result.adm).toBe(false);
     });
 
     it('Red - Deve retornar erro se o username contiver espaços', async () => {

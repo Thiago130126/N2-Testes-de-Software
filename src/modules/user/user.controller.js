@@ -24,7 +24,7 @@ export const registerUser  = async (req, res) => {
 
     }catch(error){
         console.error(error);
-        req.flash('error', 'Falha ao criar usuário');
+        req.flash('error', error);
         return res.redirect('/account/register');
     }
 };
