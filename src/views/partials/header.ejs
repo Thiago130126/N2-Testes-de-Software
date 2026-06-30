@@ -19,9 +19,9 @@
                 <span><a href="#">Explorar</a></span>
             <% } %>
             <% if(locals.currentPath.startsWith('/account/professor')) { %>
-                <span><a href="/account/professor/profile">Olá, <%= locals.user.username %></a></span>
+                <span><a href="/account/professor/profile">Olá, <%= locals.user.first_name %></a></span>
             <% } else { %>
-                <span><a href="/account/profile/">Olá, <%= locals.user.username %></a></span>
+                <span><a href="/account/profile/">Olá, <%= locals.user.first_name %></a></span>
             <% } %>
             <span><a href="/account/logout">Sair</a></span>
         <% } else { %>

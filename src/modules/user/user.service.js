@@ -54,7 +54,7 @@ export const register = async (data, model) => {
             senha: hash,
             email: email,
             data_nascimento: data_nascimento,
-            adm: true
+            adm: true,
         });
     }else{
         novoUsuario = await model.create({

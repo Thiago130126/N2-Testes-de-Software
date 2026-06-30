@@ -44,7 +44,27 @@ export const professorAuth = (req, res, next) => {
     try{
         if(!req.session.usuarioLogado.professor){
             req.flash('error', 'Precisa ser um professor para acessar essa página');
-            return res.redirect('/account/login');
+            return res.redirect('/');
+        }
+
+        next();
+
+    }catch(error){
+        console.error(error);
+        req.flash('error', falha);
+        return res.redirect('/');
+    }
+}
+
+export const Professor_pagina_principal = (req, res, next) => {
+    try{
+
+        if(!req.session || !req.session.usuarioLogado){
+            return next();
+        }
+
+        if(req.session.usuarioLogado.professor === true){
+            return res.redirect('/account/professor');
         }
 
         next();

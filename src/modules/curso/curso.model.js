@@ -6,6 +6,7 @@ const Curso = sequelize.define('Curso', {
     nome: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true
     },
     descricao: {
         type: DataTypes.TEXT,
@@ -21,7 +22,7 @@ const Curso = sequelize.define('Curso', {
     },
     thumbnail: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
     },
     ativo: {
         type: DataTypes.BOOLEAN,

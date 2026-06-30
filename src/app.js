@@ -12,6 +12,7 @@ import indexRouter from './routes/index.js';
 import accountRouter from './routes/account.js';
 import admRouter from './routes/adm.js';
 import healthRouter from './routes/health.js';
+import cursoRouter from './routes/curso.js';
 
 
 const app = express();
@@ -51,6 +52,7 @@ app.use('/', indexRouter);
 app.use('/account', accountRouter);
 app.use('/admin', admRouter);
 app.use('health/', healthRouter);
+app.use('/curso', cursoRouter);
 
 
 app.use((req, res, next) => {

@@ -11,7 +11,6 @@ const Professor = sequelize.define('Professor', {
     },
     bio: {
         type: DataTypes.TEXT,
-        allowNull: false
     },
     first_name: {
         type: DataTypes.STRING,
@@ -32,7 +31,6 @@ const Professor = sequelize.define('Professor', {
     },
     diploma: {
         type: DataTypes.STRING,
-        allowNull: false
     },
     status_diploma: {
         type: DataTypes.ENUM('pendente', 'aprovado', 'rejeitado'),
@@ -46,7 +44,6 @@ const Professor = sequelize.define('Professor', {
     },
     salario: {
         type: DataTypes.DECIMAL(10, 2),
-        allowNull: false
     },
     data_nascimento: {
         type: DataTypes.DATEONLY,

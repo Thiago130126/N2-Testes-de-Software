@@ -2,9 +2,10 @@ import express from 'express';
 
 // 1. Cria o roteador isolado
 const router = express.Router();
+import * as authMidd from '../middlewares/authMidd.js';
 
 // 2. Define a sua rota usando o 'router' no lugar do 'app'
-router.get('/', (req, res) => {
+router.get('/', authMidd.Professor_pagina_principal, (req, res, next) => {
     res.render('index', { title: 'EduStream-TDD' });
 });
 

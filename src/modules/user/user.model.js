@@ -35,7 +35,11 @@ const User = sequelize.define('User', {
     adm: {
         type: DataTypes.BOOLEAN,
         defaultValue: false
-    }
+    },
+    professor: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+    },
 },
 {
     timestamps: true,

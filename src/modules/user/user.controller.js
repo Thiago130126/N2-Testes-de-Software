@@ -13,6 +13,7 @@ export const registerUser  = async (req, res) => {
         req.session.usuarioLogado = {
             id: newUser.id,
             username: newUser.username,
+            first_name: newUser.first_name,
             adm: newUser.adm
         }
 
@@ -66,7 +67,9 @@ export const loginUser = async(req, res) => {
         req.session.usuarioLogado = {
             id: usuario.id,
             username: usuario.username,
-            adm: usuario.adm
+            first_name: usuario.first_name,
+            adm: usuario.adm,
+            professor: usuario.professor
         }
 
         req.flash('success', `Bem vindo de volta ${usuario.first_name}`);
